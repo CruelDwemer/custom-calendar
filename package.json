@@ -7,7 +7,6 @@
     "rc-calendar": "^9.1.8",
     "react": "^16.0.0",
     "react-bootstrap": "^0.31.3",
-    "react-calendar": "^2.1.0",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",

@@ -1,9 +1,11 @@
+import actionTypes from '../constants';
 import { fork, put } from 'redux-saga/effects';
+
 import response from '../../response';
 
+// Симулирует выпад ошибки с вероятностью около 50%
 function* getResponse() {
 	let selector = yield Math.random();
-	console.log(selector);
 	if (selector > 0.5) {
 		return response
 	} else {
@@ -14,13 +16,11 @@ function* getResponse() {
 function* start() {
 	try {
 		const resp = yield getResponse();
-		yield put({ type: 'SET_HOLIDAYS', data: resp.holidays});
-		yield put({ type: 'SET_AVAILABLE_HOURS', data: resp.availableHours});
+		yield put({ type: actionTypes.SET_HOLIDAYS, data: resp.holidays});
+		yield put({ type: actionTypes.SET_AVAILABLE_HOURS, data: resp.availableHours});
 	} catch(error) {
-		alert("An error occured, try to reload page");
+		alert("An error occurred, try to reload page");
 	}
-	// yield put({ type: 'SET_HOLIDAYS', data: response.holidays});
-	// yield put({ type: 'SET_AVAILABLE_HOURS', data: response.availableHours});
 }
 
 export default function* rootSaga() {

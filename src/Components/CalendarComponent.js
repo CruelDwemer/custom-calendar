@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Calendar from 'rc-calendar';
 import moment from 'moment';
-import { connect } from 'react-redux';
 
 import CalendarElement from './CalendarElement';
 import { selectDate } from '../redux/actions';
@@ -36,7 +36,6 @@ class _CalendarComponent extends Component {
 	};
 
 	render() {
-		console.log('props', this.props);
 		return(
 			<div>
 				<Calendar
@@ -44,7 +43,12 @@ class _CalendarComponent extends Component {
 					dateRender={(value, selected) => {
 						if (this.isHoliday(value)) {
 							return(
-							<CalendarElement nameOfClass="holiday" day={value.date()} availableHours={this.getAvailableHours(value)}/>)
+								<CalendarElement
+									nameOfClass="holiday"
+									day={value.date()}
+									availableHours={this.getAvailableHours(value)}
+								/>
+							)
 						}
 						if (value.isSame(selected)) {
 							return(
@@ -55,7 +59,13 @@ class _CalendarComponent extends Component {
 								/>
 							)
 						}
-						return(<CalendarElement nameOfClass="regular" day={value.date()} availableHours={this.getAvailableHours(value)}/>)
+						return(
+							<CalendarElement
+								nameOfClass="regular"
+								day={value.date()}
+								availableHours={this.getAvailableHours(value)}
+							/>
+						)
 					}
 					}
 					onSelect={(date) =>{

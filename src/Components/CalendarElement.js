@@ -12,7 +12,9 @@ class _CalendarElement extends Component {
 				{this.props.availableHours && this.props.availableHours.length > 0
 					?
 					this.props.availableHours.map(
-						(item, index) => <div key={index}><Button onClick={() => this.props.selectTime(item)}>{item}:00</Button></div>
+						(item, index) => (
+							<div key={index}><Button onClick={() => this.props.selectTime(item)}>{item}:00</Button></div>
+						)
 					)
 					:
 					<strong>no available time</strong>
