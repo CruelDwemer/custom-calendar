@@ -1,0 +1,8 @@
+const actionTypes = {
+	SET_AVAILABLE_HOURS: 'SET_AVAILABLE_HOURS',
+	SET_HOLIDAYS: 'SET_HOLIDAYS',
+	SELECT_DATE: 'SELECT_DATE',
+	SELECT_TIME: 'SELECT_TIME',
+};
+
+export default actionTypes;
